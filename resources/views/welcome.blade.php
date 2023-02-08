@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Login</title>
+  <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
 
   @vite('resources/css/app.css')
 </head>
@@ -12,7 +13,7 @@
   <div class="w-full min-h-screen flex justify-center items-center">
     <div>
       <div class="flex justify-center mb-3">
-        <img src="{{ asset('logo ua.png') }}" alt="logo" class="w-44">
+        <img src="{{ asset('assets/logo_ua.png') }}" alt="logo" class="w-44">
       </div>
       <div class="border p-8 shadow-md shadow-emerald-600">
         <h1 class="text-center uppercase font-bold text-2xl text-emerald-600">login</h1>
