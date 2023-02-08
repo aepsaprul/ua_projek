@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'ua_users',
+        'passwords' => 'users',
     ],
 
     /*
@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'ua_users',
+            'provider' => 'users',
         ],
     ],
 
@@ -60,10 +60,9 @@ return [
     */
 
     'providers' => [
-        'ua_users' => [
+        'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\UaUser::class,
-            'table' => 'ua_users'
+            'model' => App\Models\User::class,
         ],
 
         // 'users' => [
@@ -88,8 +87,8 @@ return [
     */
 
     'passwords' => [
-        'ua_users' => [
-            'provider' => 'ua_users',
+        'users' => [
+            'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
