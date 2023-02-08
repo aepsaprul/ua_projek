@@ -10,7 +10,7 @@
 </head>
 <body>
   <h1 class="text-3xl font-bold underline">
-    Hello world!
+    Hello world! <i class="fa fa-user"></i>
   </h1>
 </body>
 </html>
