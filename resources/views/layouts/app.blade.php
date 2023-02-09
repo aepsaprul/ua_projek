@@ -7,7 +7,7 @@
   <title>Utak Atik</title>
   <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
 
-  @vite('resources/css/app.css')
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
   <div class="flex">
@@ -48,5 +48,7 @@
       </div>
     </div>
   </div>
+
+  @yield('script')
 </body>
 </html>

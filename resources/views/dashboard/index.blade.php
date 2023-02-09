@@ -35,17 +35,28 @@
           <td class="p-1">{{ $item->produk }}</td>
           <td class="p-1 text-center">{{ $item->jumlah_order }}</td>
           <td class="p-1 text-center">{{ $item->ukuran }}</td>
-          <td class="p-1 text-center">
+          <td class="p-1 text-center item-tanggal">
             @php
               $date = Carbon\Carbon::parse($item->tanggal_masuk)->locale('id');
               $date->settings(['formatFunction' => 'translatedFormat']);
             @endphp
-            {{ $date->format('d-m-Y'); }}
+            <div class="cursor-pointer text-sky-700">{{ $date->format('d-m-Y'); }}</div>
           </td>
-          <td class="p-1 text-center">{{ $item->status }}</td>
+          <td class="p-1 text-center item-status">
+            <div class="cursor-pointer text-sky-700">{{ $item->status }}</div>
+            <select name="status" id="status" class="hidden">
+              <option value="preproses">Preproses</option>
+              <option value="produksi">Produksi</option>
+              <option value="selesai">Selesai</option>
+            </select>
+          </td>
         </tr>          
       @endforeach
     </tbody>
   </table>
 </div>
+@endsection
+
+@section('script')
+
 @endsection
