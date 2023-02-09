@@ -21,7 +21,7 @@
           @csrf
           <div class="my-5">
             <div>
-              <input type="email" name="email" id="email" class="w-72 border-2 p-3 border-emerald-300 outline-none @error('email') is-invalid @enderror" placeholder="Email" required>
+              <input type="email" name="email" id="email" class="w-72 border-2 p-3 border-emerald-300 outline-none @error('email') is-invalid @enderror" placeholder="Email" autofocus required>
             </div>
             <em class="text-rose-600">@error('email') {{ $message }} @enderror</em>
           </div>
