@@ -2,7 +2,21 @@
 
 @section('content')
 <h1 class="text-3xl">Dashboard</h1>
-<div class="mt-10">
+<div class="mt-10 grid grid-cols-3 gap-10">
+  <div class="w-full h-16 border-2 border-sky-400 rounded-md flex">
+    <div class="h-full w-3/4 flex items-center justify-center text-2xl text-sky-600">Pre Proses</div>
+    <div class="h-full w-1/3 flex items-center justify-end text-2xl"><span class="bg-sky-600 p-4 text-white rounded-r-md">30</span></div>
+  </div>
+  <div class="w-full h-16 border-2 border-amber-400 rounded-md flex">
+    <div class="h-full w-3/4 flex items-center justify-center text-2xl text-amber-600">Produksi</div>
+    <div class="h-full w-1/3 flex items-center justify-end text-2xl"><span class="bg-amber-600 p-4 text-white rounded-r-md">30</span></div>
+  </div>
+  <div class="w-full h-16 border-2 border-green-400 rounded-md flex">
+    <div class="h-full w-3/4 flex items-center justify-center text-2xl text-green-600">Selesai</div>
+    <div class="h-full w-1/3 flex items-center justify-end text-2xl"><span class="bg-green-600 p-4 text-white rounded-r-md">30</span></div>
+  </div>
+</div>
+<div class="mt-6">
   <table class="w-full">
     <thead class="bg-emerald-500 text-white">
       <tr>
