@@ -23,7 +23,10 @@ Route::post('login/auth', [LoginController::class, 'auth'])->name('login.auth');
 
 Route::middleware(['auth', 'prevent-back-history'])->group(function () {
   Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+  // dashboard
   Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+  Route::post('dashboard/update', [DashboardController::class, 'update'])->name('dashboard.update');
 
   // transaksi
   Route::get('transaksi', [TransaksiController::class, 'index'])->name('transaksi');

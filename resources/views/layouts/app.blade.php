@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Utak Atik</title>
   <link rel="shortcut icon" href="{{ asset('assets/favicon.png') }}" type="image/x-icon">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -46,6 +48,17 @@
       <div class="m-5">
         @yield('content')
       </div>
+    </div>
+  </div>
+
+  {{-- notifikasi --}}
+  <div id="notifikasi" class="fixed z-30 w-1/4 right-0 bottom-10 shadow-2xl transition-all delay-150 duration-700 hidden">
+    <div class="w-full bg-emerald-100 border border-emerald-400 text-emerald-700 px-4 py-3 rounded-l-full relative" role="alert">
+      <strong class="font-bold">Sukses!</strong>
+      <span class="block sm:inline">Data berhasil diperbaharui.</span>
+      <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+        <i class="fa fa-check"></i>
+      </span>
     </div>
   </div>
 
