@@ -36,6 +36,16 @@
         </select>
         <em class="text-rose-400 ml-1">@error('produk') {{ $message }} @enderror</em>
       </div>
+      <div class="w-full flex items-start">
+        <label for="status_return">
+          <input type="checkbox" name="status_return" id="status_return" class="mr-2 w-4 h-4 check_return"><span class="text-lg">Return</span>
+        </label>
+      </div>
+      <div class="flex-col w-full id-order hidden">
+        <label for="id_return" class="text-lg text-slate-600 font-semibold mb-1">ID Order</label>
+        <input type="number" name="id_return" id="id_return" class="border border-emerald-400 outline-none rounded-sm h-9 pl-3 @error('id_return') is-invalid @enderror" value="{{ old('id_return') }}" placeholder="Masukkan ID">
+        <em class="text-rose-400 ml-1">@error('id_return') {{ $message }} @enderror</em>
+      </div>
     </div>
     <div class="mt-6">
       <button type="submit" class="bg-emerald-600 text-white font-semibold py-2 px-4 rounded-sm outline-0"><i class="fa fa-save mr-1"></i>Simpan</button>
@@ -46,4 +56,18 @@
     </div>
   </form>
 </div>
+@endsection
+
+@section('script')
+<script type="module">
+$(document).ready(function () {
+  $('.check_return').on('change', function () {
+    if ($('.check_return').is(':checked')) {
+      $('.id-order').removeClass('hidden');
+    } else {
+      $('.id-order').addClass('hidden');
+    }
+  })
+})
+</script>
 @endsection

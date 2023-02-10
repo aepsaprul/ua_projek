@@ -30,8 +30,8 @@
     </thead>
     <tbody class="bg-emerald-100">
       @foreach ($transaksi as $key => $item)
-        <tr>
-          <td class="p-1 text-center">{{ $key + 1 }}</td>
+        <tr class="border border-emerald-400">
+          <td class="p-1 text-center">{{ $item->id_order }}</td>
           <td class="p-1">{{ $item->produk }}</td>
           <td class="p-1 text-center">{{ $item->jumlah_order }}</td>
           <td class="p-1 text-center">{{ $item->ukuran }}</td>
