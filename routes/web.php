@@ -26,6 +26,8 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
 
   // dashboard
   Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+  Route::get('dashboard/tabel-transaksi', [DashboardController::class, 'tabelTransaksi'])->name('dashboard.tabelTransaksi');
+  Route::post('dashboard/tabel-transaksi-ajax', [DashboardController::class, 'tabelTransaksiAjax'])->name('dashboard.tabelTransaksiAjax');
   Route::post('dashboard/update', [DashboardController::class, 'update'])->name('dashboard.update');
 
   // transaksi

@@ -62,6 +62,79 @@
     </div>
   </div>
 
+  <script>
+    function afPagination(tampilData) {
+      const paginationNumbers = document.getElementById("pagination-numbers");
+      const paginatedList = document.getElementById("paginated-list");
+      const listItems = paginatedList.querySelectorAll("tbody tr");
+
+      const paginationLimit = tampilData;
+      const pageCount = Math.ceil(listItems.length / paginationLimit);
+      let currentPage = 1;
+
+      const appendPageNumber = (index) => {
+        const pageNumber = document.createElement("button");
+        pageNumber.className = "pagination-number px-3 m-0.5 border border-slate-600";
+        pageNumber.innerHTML = index;
+        pageNumber.setAttribute("page-index", index);
+        pageNumber.setAttribute("aria-label", "Page " + index);
+
+        paginationNumbers.appendChild(pageNumber);
+      };
+
+      const getPaginationNumbers = () => {
+        for (let i = 1; i <= pageCount; i++) {
+          appendPageNumber(i);
+        }
+      };
+
+      const handleActivePageNumber = () => {
+        document.querySelectorAll(".pagination-number").forEach((button) => {
+          button.classList.remove("active", "bg-emerald-400");
+          const pageIndex = Number(button.getAttribute("page-index"));
+          if (pageIndex == currentPage) {
+            button.classList.add("active", "bg-emerald-400");
+          }
+        });
+      };
+
+      const setCurrentPage = (pageNum) => {
+        currentPage = pageNum;
+        handleActivePageNumber();
+
+        const prevRange = (pageNum - 1) * paginationLimit;
+        const currRange = pageNum * paginationLimit;
+
+        listItems.forEach((item, index) => {
+          item.classList.add("hidden");
+          if (index >= prevRange && index < currRange) {
+            item.classList.remove("hidden");
+          }
+        });
+      };
+
+      loadPage()
+      function loadPage() {
+        getPaginationNumbers();
+        setCurrentPage(1);
+
+        document.querySelectorAll(".pagination-number").forEach((button) => {
+          const pageIndex = Number(button.getAttribute("page-index"));
+
+          if (pageIndex) {
+            button.addEventListener("click", () => {
+              setCurrentPage(pageIndex);
+            });
+          }
+        });
+      }
+
+      const btn_page = document.getElementById('pagination-numbers').onclick = function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      };
+    }
+  </script>
   @yield('script')
 </body>
 </html>
