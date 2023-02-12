@@ -34,3 +34,4 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
   Route::get('transaksi', [TransaksiController::class, 'index'])->name('transaksi');
   Route::post('transaksi/store', [TransaksiController::class, 'store'])->name('transaksi.store');
 });
+Route::post('transaksi/export', [TransaksiController::class, 'export'])->name('transaksi.export');

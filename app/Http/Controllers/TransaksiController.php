@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TransaksiExport;
 use App\Models\UaTransaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TransaksiController extends Controller
 {
@@ -28,5 +30,11 @@ class TransaksiController extends Controller
     $transaksi->save();
 
     return redirect()->route('transaksi')->with('success', 'Sukses! Data berhasil disimpan');
+  }
+  public function export(Request $request)
+  {
+    $startDate = $request->start_date;
+    $endDate = $request->end_date;
+    return Excel::download(new TransaksiExport($startDate, $endDate), 'transaksi.xlsx');
   }
 }

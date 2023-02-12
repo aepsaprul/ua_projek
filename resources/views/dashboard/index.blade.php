@@ -19,11 +19,14 @@
 <div class="mt-8">
   <div class="mb-5 flex justify-between">
     <div>
-      <input type="date" name="start_date" id="start_date" class="border border-emerald-400 py-1.5 px-2 rounded" value="{{ date('Y-m-d') }}">
-      <span>s/d</span>
-      <input type="date" name="end_date" id="end_date" class="border border-emerald-400 py-1.5 px-2 rounded" value="{{ date('Y-m-d') }}">
-      <button id="btn-cari" class="ml-5 py-2 px-4 bg-emerald-400 text-white font-bold rounded">Cari <i class="fa fa-search ml-2"></i></button>
-      <button id="btn-excel" class="py-2 px-4 bg-emerald-400 text-white font-bold rounded">Excel <i class="fa fa-list ml-2"></i></button>
+      <form action="{{ route('transaksi.export') }}" method="POST">
+        @csrf
+        <input type="date" name="start_date" id="start_date" class="border border-emerald-400 py-1.5 px-2 rounded" value="{{ date('Y-m-d') }}">
+        <span>s/d</span>
+        <input type="date" name="end_date" id="end_date" class="border border-emerald-400 py-1.5 px-2 rounded" value="{{ date('Y-m-d') }}">
+        <button type="button" id="btn-cari" class="ml-5 py-2 px-4 bg-emerald-400 text-white font-bold rounded">Cari <i class="fa fa-search ml-2"></i></button>
+        <button type="submit" id="btn-excel" class="py-2 px-4 bg-emerald-400 text-white font-bold rounded">Excel <i class="fa fa-list ml-2"></i></button>
+      </form>
     </div>
     <div>
       <input type="text" name="filter-produk" id="filter-produk" placeholder="Ketik Nama Produk" class="border border-emerald-400 py-1.5 px-2 rounded">
