@@ -7,6 +7,11 @@
     @csrf
     <div class="grid grid-cols-5 gap-5">
       <div class="flex flex-col w-full">
+        <label for="konsumen" class="text-lg text-slate-600 font-semibold mb-1">Nama Konsumen</label>
+        <input type="text" name="konsumen" id="konsumen" class="border border-emerald-400 outline-none rounded-sm h-9 pl-3 @error('konsumen') is-invalid @enderror" value="{{ old('konsumen') }}" placeholder="Nama Konsumen" autofocus required>
+        <em class="text-rose-400 ml-1">@error('konsumen') {{ $message }} @enderror</em>
+      </div>
+      <div class="flex flex-col w-full">
         <label for="produk" class="text-lg text-slate-600 font-semibold mb-1">Nama Produk</label>
         <input type="text" name="produk" id="produk" class="border border-emerald-400 outline-none rounded-sm h-9 pl-3 @error('produk') is-invalid @enderror" value="{{ old('produk') }}" placeholder="Nama Produk" autofocus required>
         <em class="text-rose-400 ml-1">@error('produk') {{ $message }} @enderror</em>
@@ -17,9 +22,14 @@
         <em class="text-rose-400 ml-1">@error('jumlah_order') {{ $message }} @enderror</em>
       </div>
       <div class="flex flex-col w-full">
-        <label for="ukuran" class="text-lg text-slate-600 font-semibold mb-1">Ukuran (cm)</label>
-        <input type="number" name="ukuran" id="ukuran" class="border border-emerald-400 outline-none rounded-sm h-9 pl-3 @error('ukuran') is-invalid @enderror" value="{{ old('ukuran') }}" placeholder="Ukuran" required>
-        <em class="text-rose-400 ml-1">@error('ukuran') {{ $message }} @enderror</em>
+        <label for="panjang" class="text-lg text-slate-600 font-semibold mb-1">Panjang (cm)</label>
+        <input type="number" name="panjang" id="panjang" class="border border-emerald-400 outline-none rounded-sm h-9 pl-3 @error('panjang') is-invalid @enderror" value="{{ old('panjang') }}" placeholder="Panjang" required>
+        <em class="text-rose-400 ml-1">@error('panjang') {{ $message }} @enderror</em>
+      </div>
+      <div class="flex flex-col w-full">
+        <label for="lebar" class="text-lg text-slate-600 font-semibold mb-1">Lebar (cm)</label>
+        <input type="number" name="lebar" id="lebar" class="border border-emerald-400 outline-none rounded-sm h-9 pl-3 @error('lebar') is-invalid @enderror" value="{{ old('lebar') }}" placeholder="Lebar" required>
+        <em class="text-rose-400 ml-1">@error('lebar') {{ $message }} @enderror</em>
       </div>
       <div class="flex flex-col w-full">
         <label for="tanggal_masuk" class="text-lg text-slate-600 font-semibold mb-1">Tanggal</label>
@@ -28,7 +38,6 @@
       </div>
       <div class="flex flex-col w-full">
         <label for="status" class="text-lg text-slate-600 font-semibold mb-1">Status</label>
-        {{-- <input type="text" name="produk" id="produk" class="border border-emerald-400 outline-none rounded-sm h-9 pl-3 @error('produk') is-invalid @enderror" placeholder="Nama Produk" required> --}}
         <select name="status" id="status" class="border border-emerald-400 outline-none rounded-sm h-9 pl-3">
           <option value="preproses">Pre Proses</option>
           <option value="produksi">Produksi</option>
@@ -36,9 +45,9 @@
         </select>
         <em class="text-rose-400 ml-1">@error('produk') {{ $message }} @enderror</em>
       </div>
-      <div class="w-full flex items-start">
+      <div class="w-full inline-flex items-end">
         <label for="status_return">
-          <input type="checkbox" name="status_return" id="status_return" class="mr-2 w-4 h-4 check_return"><span class="text-lg">Return</span>
+          <input type="checkbox" name="status_return" id="status_return" class="w-5 h-5 mr-2 check_return"><span>Return</span>
         </label>
       </div>
       <div class="flex-col w-full id-order hidden">

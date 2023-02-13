@@ -2,7 +2,8 @@
   <thead class="bg-emerald-500 text-white">
     <tr>
       <th class="p-2 rounded-tl">Id</th>
-      <th class="p-2">Nama Produk</th>
+      <th class="p-2">Konsumen</th>
+      <th class="p-2">Produk</th>
       <th class="p-2">Jumlah Order</th>
       <th class="p-2">Ukuran</th>
       <th class="p-2">Tanggal</th>
@@ -13,9 +14,10 @@
     @foreach ($transaksi as $key => $item)
       <tr class="border border-emerald-400">
         <td class="p-1 text-center">{{ $item->id_order }}</td>
+        <td class="p-1">{{ $item->konsumen }}</td>
         <td class="p-1">{{ $item->produk }}</td>
         <td class="p-1 text-center">{{ $item->jumlah_order }}</td>
-        <td class="p-1 text-center">{{ $item->ukuran }}</td>
+        <td class="p-1 text-center">{{ $item->panjang }} x {{ $item->lebar }}</td>
         <td class="p-1 text-center item-tanggal">
           @php
             $date = Carbon\Carbon::parse($item->tanggal_masuk)->locale('id');

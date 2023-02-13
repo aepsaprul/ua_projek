@@ -19,8 +19,10 @@ class TransaksiController extends Controller
     $transaksi = new UaTransaksi;
     $transaksi->id_order = random_int(111111,999999);
     $transaksi->produk = $request->produk;
+    $transaksi->konsumen = $request->konsumen;
     $transaksi->jumlah_order = $request->jumlah_order;
-    $transaksi->ukuran = $request->ukuran;
+    $transaksi->panjang = $request->panjang;
+    $transaksi->lebar = $request->lebar;
     $transaksi->tanggal_masuk = $request->tanggal_masuk;
     $transaksi->status = $request->status;
     if ($request->status_return) {
