@@ -47,5 +47,95 @@
 </div>
 
 <script type="module">
-  afPagination(10);
+  $(document).ready(function(){
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+
+    afPagination(10);
+
+    // double click status
+    $(".item-status").on('dblclick', function () {
+      const id = $(this).attr('data-id');
+      $('#item-status-' + id).addClass('hidden');
+      $('.select-status-' + id).removeClass('hidden');
+    });
+
+    // onchange status
+    $('.select-status').on('change', function () {
+      const id = $(this).attr('data-id');
+      const status = $(this).val();
+
+      $('#item-status-' + id).empty();
+
+      const formData = {
+        update: "status",
+        id: id,
+        status: status
+      }
+
+      $.ajax({
+        url: "{{ URL::route('dashboard.update') }}",
+        type: "post",
+        data: formData,
+        success: function (response) {
+          console.log(response);
+          $('#notifikasi').removeClass('hidden');
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
+        }
+      })
+    })
+
+    // batal status
+    $('.select-status-batal').on('click', function () {
+      const id = $(this).attr('data-id');
+      $('#item-status-' + id).removeClass('hidden');
+      $('.select-status-' + id).addClass('hidden');
+    })
+
+    // doble click tanggal
+    $(".item-tanggal").on('dblclick', function () {
+      let id = $(this).attr('data-id');
+      $('#item-tanggal-' + id).addClass('hidden');
+      $('.input-tanggal-' + id).removeClass('hidden');
+    })
+
+    // onchange tanggal
+    $('.input-tanggal').on('change', function () {
+      const id = $(this).attr('data-id');
+      const tanggal = $(this).val();
+
+      $('#item-tanggal-' + id).empty();
+
+      const formData = {
+        update: "tanggal",
+        id: id,
+        tanggal_masuk: tanggal
+      }
+
+      $.ajax({
+        url: "{{ URL::route('dashboard.update') }}",
+        type: "post",
+        data: formData,
+        success: function (response) {
+          console.log(response);
+          $('#notifikasi').removeClass('hidden');
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
+        }
+      })
+    })
+
+    // batal tanggal
+    $('.input-tanggal-batal').on('click', function () {
+      const id = $(this).attr('data-id');
+      $('#item-tanggal-' + id).removeClass('hidden');
+      $('.input-tanggal-' + id).addClass('hidden');
+    })
+  });
 </script>
