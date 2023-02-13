@@ -4,7 +4,9 @@
     <th style="background-color: #50C878; font-weight: bold; text-align: center;">No</th>
     <th style="background-color: #50C878; font-weight: bold; text-align: center;">ID Order</th>
     <th style="background-color: #50C878; font-weight: bold; text-align: center;">Produk</th>
-    <th style="background-color: #50C878; font-weight: bold; text-align: center;">Ukuran</th>
+    <th style="background-color: #50C878; font-weight: bold; text-align: center;">Panjang</th>
+    <th style="background-color: #50C878; font-weight: bold; text-align: center;">Lebar</th>
+    <th style="background-color: #50C878; font-weight: bold; text-align: center;">Luas</th>
     <th style="background-color: #50C878; font-weight: bold; text-align: center;">Tanggal Masuk</th>
     <th style="background-color: #50C878; font-weight: bold; text-align: center;">Status</th>
     <th style="background-color: #50C878; font-weight: bold; text-align: center;">Status Return</th>
@@ -17,7 +19,9 @@
         <td>{{ $key + 1 }}</td>
         <td>{{ $item->id_order }}</td>
         <td>{{ $item->produk }}</td>
-        <td>{{ $item->ukuran }}</td>
+        <td>{{ $item->panjang }}</td>
+        <td>{{ $item->lebar }}</td>
+        <td>{{ $item->panjang * $item->lebar }}</td>
         <td>
           @php
             $date = Carbon\Carbon::parse($item->tanggal_masuk)->locale('id');

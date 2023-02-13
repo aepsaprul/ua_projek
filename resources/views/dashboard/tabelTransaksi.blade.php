@@ -17,7 +17,7 @@
         <td class="p-1">{{ $item->konsumen }}</td>
         <td class="p-1">{{ $item->produk }}</td>
         <td class="p-1 text-center">{{ $item->jumlah_order }}</td>
-        <td class="p-1 text-center">{{ $item->panjang }} x {{ $item->lebar }}</td>
+        <td class="p-1 text-center">{{ $item->panjang }} x {{ $item->lebar }} = {{ $item->panjang * $item->lebar }}</td>
         <td class="p-1 text-center item-tanggal">
           @php
             $date = Carbon\Carbon::parse($item->tanggal_masuk)->locale('id');
