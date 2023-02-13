@@ -5,7 +5,7 @@
       <th class="p-2">Konsumen</th>
       <th class="p-2">Produk</th>
       <th class="p-2">Jumlah Order</th>
-      <th class="p-2">Ukuran</th>
+      <th class="p-2">Ukuran (cm)</th>
       <th class="p-2">Tanggal</th>
       <th class="p-2 rounded-tr">Status</th>
     </tr>
