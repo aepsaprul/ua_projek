@@ -2,7 +2,7 @@
 
 @section('content')
 <h1 class="text-3xl">Dashboard</h1>
-<div class="mt-10 grid grid-cols-3 gap-10">
+<div class="mt-10 grid grid-cols-4 gap-10">
   <div class="w-full h-16 border-2 border-sky-400 rounded flex">
     <div class="h-full w-3/4 flex items-center justify-center text-2xl text-sky-600">Pre Proses</div>
     <div class="h-full w-1/3 flex items-center justify-end text-2xl"><span class="bg-sky-600 py-4 px-8 text-white rounded-r">{{ $total_preproses }}</span></div>
@@ -14,6 +14,10 @@
   <div class="w-full h-16 border-2 border-green-400 rounded flex">
     <div class="h-full w-3/4 flex items-center justify-center text-2xl text-green-600">Selesai</div>
     <div class="h-full w-1/3 flex items-center justify-end text-2xl"><span class="bg-green-600 py-4 px-8 text-white rounded-r">{{ $total_selesai }}</span></div>
+  </div>
+  <div class="w-full h-16 border-2 border-rose-400 rounded flex">
+    <div class="h-full w-3/4 flex items-center justify-center text-2xl text-green-600">Batal</div>
+    <div class="h-full w-1/3 flex items-center justify-end text-2xl"><span class="bg-rose-600 py-4 px-8 text-white rounded-r">{{ $total_batal }}</span></div>
   </div>
 </div>
 <div class="mt-8">
@@ -35,6 +39,7 @@
         <option value="preproses">Preproses</option>
         <option value="produksi">Produksi</option>
         <option value="selesai">Selesai</option>
+        <option value="batal">Batal</option>
       </select>
     </div>
   </div>

@@ -36,6 +36,7 @@
               <option value="preproses" {{ $item->status == "preproses" ? "selected" : "" }}>Preproses</option>
               <option value="produksi" {{ $item->status == "produksi" ? "selected" : "" }}>Produksi</option>
               <option value="selesai" {{ $item->status == "selesai" ? "selected" : "" }}>Selesai</option>
+              <option value="batal" {{ $item->status == "batal" ? "selected" : "" }}>Batal</option>
             </select>
             <i class="fa fa-ban text-rose-800 ml-2 cursor-pointer select-status-batal" data-id="{{ $item->id }}" title="Batal"></i>
           </div>

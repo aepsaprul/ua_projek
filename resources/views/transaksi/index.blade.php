@@ -42,6 +42,7 @@
           <option value="preproses">Pre Proses</option>
           <option value="produksi">Produksi</option>
           <option value="selesai">Selesai</option>
+          <option value="batal">Batal</option>
         </select>
         <em class="text-rose-400 ml-1">@error('produk') {{ $message }} @enderror</em>
       </div>

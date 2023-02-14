@@ -13,17 +13,20 @@ class DashboardController extends Controller
     $transaksi_preproses = UaTransaksi::where('status', 'preproses')->get();
     $transaksi_produksi = UaTransaksi::where('status', 'produksi')->get();
     $transaksi_selesai = UaTransaksi::where('status', 'selesai')->get();
+    $transaksi_batal = UaTransaksi::where('status', 'batal')->get();
 
     // total
     $total_preproses = count($transaksi_preproses);
     $total_produksi = count($transaksi_produksi);
     $total_selesai = count($transaksi_selesai);
+    $total_batal = count($transaksi_batal);
 
     return view('dashboard.index', [
       'transaksi' => $transaksi,
       'total_preproses' => $total_preproses,
       'total_produksi' => $total_produksi,
-      'total_selesai' => $total_selesai
+      'total_selesai' => $total_selesai,
+      'total_batal' => $total_batal
     ]);
   }
   public function tabelTransaksi()
@@ -53,6 +56,13 @@ class DashboardController extends Controller
     $transaksi = UaTransaksi::find($request->id);
 
     if ($request->update == "status") {
+      if ($request->status == "produksi") {
+        $transaksi->tanggal_produksi = date('Y-m-d');
+      } else if ($request->status == "selesai") {
+        $transaksi->tanggal_selesai = date('Y-m-d');
+      } else if ($request->status == "batal") {
+        $transaksi->tanggal_batal = date('Y-m-d');
+      }
       $transaksi->status = $request->status;  
     } else {
       $transaksi->tanggal_masuk = $request->tanggal_masuk;
