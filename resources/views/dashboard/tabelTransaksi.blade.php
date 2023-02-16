@@ -4,12 +4,12 @@
       <th class="p-2 rounded-tl">Id</th>
       <th class="p-2">Konsumen</th>
       <th class="p-2">Produk</th>
+      <th class="p-2">Keterangan</th>
       <th class="p-2">Jumlah Order</th>
       <th class="p-2">Ukuran (cm)</th>
       <th class="p-2">Tanggal</th>
       <th class="p-2">Deadline</th>
-      <th class="p-2">Status</th>
-      <th class="p-2 rounded-tr">Keterangan</th>
+      <th class="p-2 rounded-tr">Status</th>
     </tr>
   </thead>
   <tbody id="paginated-list" class="bg-emerald-100">
@@ -18,6 +18,7 @@
         <td class="p-1 text-center">{{ $item->id_order }}</td>
         <td class="p-1">{{ $item->konsumen }}</td>
         <td class="p-1">{{ $item->produk }}</td>
+        <td class="p-1">{{ $item->keterangan }}</td>
         <td class="p-1 text-center">{{ $item->jumlah_order }}</td>
         <td class="p-1 text-center">{{ $item->panjang }} x {{ $item->lebar }} = {{ $item->panjang * $item->lebar }}</td>
         <td class="p-1 text-center item-tanggal">
@@ -62,7 +63,6 @@
             <i class="fa fa-ban text-rose-800 ml-2 cursor-pointer select-status-batal" data-id="{{ $item->id }}" title="Batal"></i>
           </div>
         </td>
-        <td class="p-1">{{ $item->keterangan }}</td>
       </tr>          
     @endforeach
   </tbody>
