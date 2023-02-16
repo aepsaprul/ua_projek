@@ -25,6 +25,8 @@ class TransaksiController extends Controller
     $transaksi->lebar = $request->lebar;
     $transaksi->tanggal_masuk = $request->tanggal_masuk;
     $transaksi->status = $request->status;
+    $transaksi->deadline = $request->deadline;
+    $transaksi->keterangan = $request->keterangan;
     if ($request->status_return) {
       $transaksi->status_return = 'y';
       $transaksi->id_return = $request->id_return;

@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
   public function index()
   {
-    $transaksi = UaTransaksi::get();
+    $transaksi = UaTransaksi::orderBy('id', 'desc')->get();
     $transaksi_preproses = UaTransaksi::where('status', 'preproses')->get();
     $transaksi_produksi = UaTransaksi::where('status', 'produksi')->get();
     $transaksi_selesai = UaTransaksi::where('status', 'selesai')->get();
@@ -31,7 +31,7 @@ class DashboardController extends Controller
   }
   public function tabelTransaksi()
   {
-    $transaksi = UaTransaksi::get();
+    $transaksi = UaTransaksi::orderBy('id', 'desc')->get();
 
     return view('dashboard.tabelTransaksi', [
       'transaksi' => $transaksi
@@ -40,11 +40,11 @@ class DashboardController extends Controller
   public function tabelTransaksiAjax(Request $request)
   {
     if ($request->filter == "cari") {
-      $transaksi = UaTransaksi::whereBetween('tanggal_masuk', [$request->start_date, $request->end_date])->get();
+      $transaksi = UaTransaksi::whereBetween('tanggal_masuk', [$request->start_date, $request->end_date])->orderBy('id', 'desc')->get();
     } else if ($request->filter == "produk") {
-      $transaksi = UaTransaksi::where('produk', 'like', '%'. $request->produk .'%')->limit(20)->get();
+      $transaksi = UaTransaksi::where('produk', 'like', '%'. $request->produk .'%')->limit(20)->orderBy('id', 'desc')->get();
     } else {
-      $transaksi = UaTransaksi::where('status', $request->status)->get();
+      $transaksi = UaTransaksi::where('status', $request->status)->orderBy('id', 'desc')->get();
     }
 
     return view('dashboard.tabelTransaksi', [
@@ -64,8 +64,10 @@ class DashboardController extends Controller
         $transaksi->tanggal_batal = date('Y-m-d');
       }
       $transaksi->status = $request->status;  
-    } else {
+    } else if ($request->update == "tanggal_masuk") {
       $transaksi->tanggal_masuk = $request->tanggal_masuk;
+    } else if ($request->update == "deadline") {
+      $transaksi->deadline = $request->deadline;
     }
 
     $transaksi->save();
